@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>VanguardFinancials.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{432f0a24-291e-4436-b586-98d48a365ebb}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>VanguardFinancials.Database</RootNamespace>
+    <AssemblyName>VanguardFinancials.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <GenerateCreateScript>True</GenerateCreateScript>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="Functions" />
+    <Folder Include="Views" />
+    <Folder Include="Scripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.VisualBasic" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Functions\FinancialFunctions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="VanguardFinancials.Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_HighestProductBalance.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_AtmTransactions.sql" />
+    <None Include="StoredProcedures\sp_AtmTransactionsFrequency.sql" />
+    <None Include="StoredProcedures\sp_Balance.sql" />
+    <None Include="StoredProcedures\sp_BanksRegister.sql" />
+    <None Include="StoredProcedures\sp_BranchListing.sql" />
+    <None Include="StoredProcedures\sp_Calender.sql" />
+    <None Include="StoredProcedures\sp_CashWithdrawalAuthorization.sql" />
+    <None Include="StoredProcedures\sp_ChartOfAccountsListing.sql" />
+    <None Include="StoredProcedures\sp_ChartOfAccountsListingSorted.sql" />
+    <None Include="StoredProcedures\sp_ChartOfAccountsListingSortedSearch.sql" />
+    <None Include="StoredProcedures\sp_CheckRecovery.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_ConsolidatedTrialBalance.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_CustomerAccountBalance.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_CustomerAccountStatement.sql" />
+    <None Include="StoredProcedures\sp_CustomerSavingsStatement.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_CustomerStatement.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_CustomerTransactionAuthRequest.sql" />
+    <None Include="StoredProcedures\sp_DailyRoutine.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\SP_Dashboard.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_DebitCardsExpiredReport.sql" />
+    <None Include="StoredProcedures\sp_DebitCardsLinkingReport.sql" />
+    <None Include="StoredProcedures\sp_DebitCardsListingReport.sql" />
+    <None Include="StoredProcedures\sp_Defaulters.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_DefaultersSummary.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_DeleteCreditBatchEntries.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_EmployeeRegister.sql" />
+    <None Include="StoredProcedures\sp_EmployeeRegisterByGroups.sql" />
+    <None Include="StoredProcedures\sp_GetCustomerIds.sql" />
+    <None Include="StoredProcedures\sp_EmployerAttachmentReport.sql" />
+    <None Include="StoredProcedures\sp_ExternalChequesListing.sql" />
+    <None Include="StoredProcedures\sp_FileMovementRegisterByDateDispatched.sql" />
+    <None Include="StoredProcedures\sp_FileMovementRegisterByReceiveDate.sql" />
+    <None Include="StoredProcedures\sp_FileMovementRegisterForSingleFile.sql" />
+    <None Include="StoredProcedures\sp_FinancialStatementBranch.sql" />
+    <None Include="StoredProcedures\sp_FindCustomerAccount.sql" />
+    <None Include="StoredProcedures\sp_FindCustomerAccountById.sql" />
+    <None Include="StoredProcedures\sp_FindCustomerAccountByTargetProductId.sql" />
+    <None Include="StoredProcedures\sp_FindCustomerAccountByTargetProductIdAndCustomerId.sql" />
+    <None Include="StoredProcedures\sp_FindCustomerAccountByTargetProductIdAndPayrollNumber.sql" />
+    <None Include="StoredProcedures\sp_FindCustomerAccountByTargetProductIdAndReference3.sql" />
+    <None Include="StoredProcedures\sp_FindCustomerLoanAccountsGivenEmployerAndLoanProduct.sql" />
+    <None Include="StoredProcedures\sp_FindEFTOrder.sql" />
+    <None Include="StoredProcedures\sp_FindStandingOrder.sql" />
+    <None Include="StoredProcedures\sp_GetGlAccountBalance.sql" />
+    <None Include="StoredProcedures\sp_GetStandingOrdersByEmployerAndTrigger.sql" />
+    <None Include="StoredProcedures\sp_GLAccountDeterminationListings.sql" />
+    <None Include="StoredProcedures\sp_GlAccountStatement.sql" />
+    <None Include="StoredProcedures\sp_GlSingleAccountTransactionsSummarized.sql" />
+    <None Include="StoredProcedures\sp_IncomeStatement.sql" />
+    <None Include="StoredProcedures\sp_IncomeStatementwithBudget.sql" />
+    <None Include="StoredProcedures\sp_IncomeStatementWithBudgetSummaries.sql" />
+    <None Include="StoredProcedures\sp_InsiderLending.sql" />
+    <None Include="StoredProcedures\sp_InvestmentProductsBalances.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\TestScript.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_JournalVoucherEntries.sql" />
+    <None Include="StoredProcedures\sp_JournalVoucherListing.sql" />
+    <None Include="StoredProcedures\sp_LoanForm.sql" />
+    <None Include="StoredProcedures\sp_LoaningMonthlySummary.sql" />
+    <None Include="StoredProcedures\sp_LoaningReport.sql" />
+    <None Include="StoredProcedures\sp_LoaningReportInsurance.sql" />
+    <None Include="StoredProcedures\sp_LoanRecoverySummary.sql" />
+    <None Include="StoredProcedures\sp_LoansProductsBalances.sql" />
+    <None Include="StoredProcedures\sp_MembershipWithdrawal.sql" />
+    <None Include="StoredProcedures\sp_PayrollBankPayList.sql" />
+    <None Include="StoredProcedures\sp_PayrollReport.sql" />
+    <None Include="StoredProcedures\sp_payrollsummary.sql" />
+    <None Include="StoredProcedures\sp_payslips.sql" />
+    <None Include="StoredProcedures\sp_Procedure.sql" />
+    <None Include="StoredProcedures\sp_ProductAccountBalances.sql" />
+    <None Include="StoredProcedures\sp_ProductsBalances.sql" />
+    <None Include="StoredProcedures\sp_ProductsListing.sql" />
+    <None Include="StoredProcedures\sp_RapaymentSchedule.sql" />
+    <None Include="StoredProcedures\sp_ReversedTransactionsByDate.sql" />
+    <None Include="StoredProcedures\sp_RoleApplication.sql" />
+    <None Include="StoredProcedures\sp_SaccoLinkReports.sql" />
+    <None Include="StoredProcedures\sp_SaccoStatisticalReport.sql" />
+    <None Include="StoredProcedures\sp_SalaryGroups.sql" />
+    <None Include="StoredProcedures\sp_SalaryHeadsListing.sql" />
+    <None Include="StoredProcedures\sp_SavingsProductsBalances.sql" />
+    <None Include="StoredProcedures\sp_SingleGlTransactions_DateRange.sql" />
+    <None Include="StoredProcedures\sp_StandingOrders.sql" />
+    <None Include="StoredProcedures\sp_StatementOfDepositReturn.sql" />
+    <None Include="StoredProcedures\sp_SumCreditBatchEntries.sql" />
+    <None Include="StoredProcedures\sp_TellerDailyTransactions.sql" />
+    <None Include="StoredProcedures\sp_TellersRegister.sql" />
+    <None Include="StoredProcedures\sp_TellerSummary.sql" />
+    <None Include="StoredProcedures\sp_TrialBalance.sql" />
+    <None Include="StoredProcedures\sp_UserProfile.sql" />
+    <None Include="StoredProcedures\sp_WithdrawalNotifications.sql" />
+    <None Include="Views\vw_Budget.sql" />
+    <None Include="Views\vw_CreditBatchEntries.sql" />
+    <None Include="Views\vw_CustomerAccounts.sql" />
+    <None Include="Views\vw_CustomerAccountsBalances.sql" />
+    <None Include="Views\vw_CustomerTransactionAuthRequests.sql" />
+    <None Include="Views\vw_EmployeeRegister.sql" />
+    <None Include="Views\vw_EmployeeRegisterwithUserID.sql" />
+    <None Include="Views\vw_FiscalCount.sql" />
+    <None Include="Views\vw_FixedDeposts.sql" />
+    <None Include="Views\vw_KBABankListing.sql" />
+    <None Include="Views\vw_LoaningList.sql" />
+    <None Include="Views\vw_MemberRegister.sql" />
+    <None Include="Views\vw_Overdeductions.sql" />
+    <None Include="Views\vw_Payslips.sql" />
+    <None Include="Views\vw_Roles.sql" />
+    <None Include="Views\vw_SalaryGroups.sql" />
+    <None Include="Views\vw_SalaryHeads.sql" />
+    <None Include="Views\vw_UsersandRoles.sql" />
+    <None Include="Functions\AccountProductsBalances.sql" />
+    <None Include="Functions\f_GLAccountBalance.sql" />
+    <None Include="Functions\f_MonthlyBudget.sql" />
+    <None Include="Functions\fnReportTemplate.sql" />
+    <None Include="Functions\fnReportTemplateSummary.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_DeleteDebitBatchEntries.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_MicroCreditGroupsListing.sql" />
+    <None Include="Views\vw_MicroCreditGroups.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_MicroCreditGroupMembers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\vw_Customers.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_MicroCreditSingleGroupsListing.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_MicroCreditSearchGroupsListing.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_UserActivityProfile.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_GlAccountStatementByCostCenter.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_FindStandingOrder_1.sql" />
+    <None Include="Functions\f_CustomerLastTransactionDate.sql" />
+    <None Include="Functions\GetMonthList.sql" />
+    <None Include="Functions\Products.sql" />
+    <None Include="Functions\TrialBalance.sql" />
+    <None Include="Functions\TrialBalanceConsolidated.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_InhouseCheques.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\vw_CustomerAccountsWithoutProductDescription.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_CreditBatch.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_MembersPerStation.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_MembersPerEmployer.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_GetLastCreditBatchEntry.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_GetMonthlyAbility.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_AtmTransactionsLocal.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_LoandisbursementbyEmployer.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_ExternalChequesUnclearedORUnbanked.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_ValidateGracePeriodComputation.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_MemberRegistrationByDate.sql" />
+    <None Include="StoredProcedures\sp_IncomeExpenditureByBranch.sql" />
+    <None Include="StoredProcedures\sp_StandingOrdersByEmployer.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_GlAccountStatementByAccountCode.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_LoanProductBalanceAndInterest.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_LoansApprovedByBranch.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_LoaningReportDisbursed.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_LoansDisbursedByBranch.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_CustomerAccountBalanceAvailable.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_UpdateStandingOrderCapitalizedInterest.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_UnclearedCheques.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_UnBankedCheques.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_UnpaidFixedDeposits.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_InvestmentProductBalance.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_NonCashJournal.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_CheckCustomerAccountLastWithdrawalDate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_CashJournal.sql" />
+    <None Include="StoredProcedures\sp_ConsolidatedBalanceSheet.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_ByProductPostingSummary.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_ByProductPostingSummaryByEmployer.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_SystemTransactionSummaryByGledger.sql" />
+    <None Include="StoredProcedures\sp_SystemTransactionSummaryByBranch.sql" />
+    <None Include="StoredProcedures\sp_SystemTransactionSummaryByBranchDetailed.sql" />
+    <None Include="StoredProcedures\sp_FindCustomerByPayrollNumber.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_GetDormantAccounts.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_Dividends_Prorata.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StoredProcedures\sp_GetGlAccountBalanceByBranch.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="StoredProcedures\sp_RecoveryReport.sql" />
+    <Build Include="StoredProcedures\sp_TextAlertSummaries.sql" />
+    <Build Include="StoredProcedures\sp_LoansProductsBalancesComparative.sql" />
+    <Build Include="StoredProcedures\sp_LoanProductBalanceAndInterestNegativeLoans.sql" />
+    <Build Include="StoredProcedures\sp_FailedStandingOrders.sql" />
+    <Build Include="StoredProcedures\sp_Fiscal.sql" />
+  </ItemGroup>
+</Project>
